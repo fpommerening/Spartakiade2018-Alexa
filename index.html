@@ -1,4 +1,208 @@
+<!doctype html>
 <html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>(An)sprechende Anwendungen mit Alexa</title>
+
+<meta name="description" content="(An)sprechende Anwendungen mit Alexa">
+<meta name="author" content="Frank Pommerening">
+
+<link rel="stylesheet" href="./common/css/reveal.css">
+<link rel="stylesheet" href="./common/css/theme/black.css" id="theme">
+
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="./common/lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? './common/css/print/pdf.css' : './common/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<style>
+    a.infolink {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        background-image: url("images/about.svg");
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>(An)sprechende Anwendungen mit Alexa</h1>
+                <h2>Spartakiade 2018</h2>
+                <img src="images/logo_spartakiade.png" style="border: 0px;background: transparent;height:250px" />
+            </section>
+            <section>
+                <section>
+                    <h2>Frank Pommerening</h2>
+                    <img src="images/fp.jpg" style="border:0px;width:175px">
+                    <ul>
+                        <li>Senior - Softwareentwickler</li>
+                        <li>Consultant</li>
+                        <li>Softwarearchitekt</li>
+                    </ul>
+                    <br />
+                    <br />
+                    <a href="mailto:frank@pommerening-online.de">frank@pommerening-online.de</a>
+                </section>
+                <section data-background="images/axp.svg">
+
+                    AXP Consulting GmbH & Co. KG in Leipzig
+                    <br/> Gründung: Mai 2012
+                    <br /> Anzahl Mitarbeiter: 8 feste
+                    <br/> Branchenfokus: Energiebranche
+                    <br/>
+                    <br/>
+                    <br/>
+                    <ul>
+                        <li>Consulting (fachlich & IT)
+                            <ul>
+                                <li>Requirements Engineering / Projektmanagement </li>
+                                <li>IT-Fachprozess-Analyse / Dokumentation</li>
+                            </ul>
+                        </li>
+                        <li>Software-Entwicklung
+                            <ul>
+                                <li>Microservices, SOA, REST, OOA und OOD</li>
+                                <li>Microsoft Technologien z.B. .NET (C#), WPF, WCF</li>
+                                <li>Datenbanken (MS SQL Server / Oracle / MongoDB)
+                            </ul>
+                            </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Amazon Developer Console <br/> Alexa Skill Kit</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Interaction Modell</h2>
+                </section>
+                <section>
+                    <h3>Intents</h3>
+                </section>
+                <section>
+                    <h3>Utterances</h3>
+                </section>
+                <section>
+                    <h3>Slot Types</h3>
+                </section>
+                <section>
+                    <h3>Build-Status</h3>
+                </section>
+                <section>
+                    <h3>Scrum-Planer (Interaction Modell)</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Backends</h2>
+                </section>
+                <section>
+                    <h3>Amazon AWS Lambdas</h3>
+                </section>
+                <section>
+                    <h3>Microsoft Azure Functions</h3>
+                </section>
+                <section>
+                    <h3>OpenFaaS</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Spracheverarbeitung</h2>
+                </section>
+                <section>
+                    <h3>Scrum-Planer (Backend)</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Integration externer Systeme</h2>
+                </section>
+                <section>
+                    <h3>VSTS-Build-Status (Backend)</h3>
+                    https://www.visualstudio.com/en-us/docs/integrate/api/build/builds
+                </section>
+                <section>
+                    <h3>Mail-Status</h3>
+                    https://github.com/jstedfast/MailKit
+                </section>
+            </section>
+            <section>
+                <h2>Smarthome</h2>
+            </section>
+        </div>
+    </div>
+    <script src="./common/lib/js/head.min.js"></script>
+    <script src="./common/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            width: 1250,
+            height: 720,
+            slideNumber: true,
+            margin: 0.0,
+
+            menu: {
+                side: 'left',
+
+                titleSelector: 'h1, h2, h3, h4, h5, h6',
+                hideMissingTitles: false,
+                markers: false,
+                custom: false,
+                themes: [
+                    { name: 'Black', theme: './common/css/theme/black.css' },
+                    { name: 'White', theme: './common/css/theme/white.css' },
+                    { name: 'League', theme: './common/css/theme/league.css' },
+                    { name: 'Sky', theme: './common/css/theme/sky.css' },
+                    { name: 'Beige', theme: './common/css/theme/beige.css' },
+                    { name: 'Simple', theme: './common/css/theme/simple.css' },
+                    { name: 'Serif', theme: './common/css/theme/serif.css' },
+                    { name: 'Blood', theme: './common/css/theme/blood.css' },
+                    { name: 'Night', theme: './common/css/theme/night.css' },
+                    { name: 'Moon', theme: './common/css/theme/moon.css' },
+                    { name: 'Solarized', theme: './common/css/theme/solarized.css' }
+                ],
+
+                transitions: true,
+                openButton: true,
+                openSlideNumber: false,
+                keyboard: true,
+                sticky: false,
+                autoOpen: true
+            },
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: './common/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: './common/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: './common/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: './common/plugin/notes/notes.js', async: true },
+                { src: './common/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: './common/plugin/zoom-js/zoom.js', async: true },
+                { src: './common/plugin/notes/notes.js', async: true },
+                { src: './common/plugin/menu/menu.js', async: true }
+            ]
+        });
+    </script>
+</body>
 
 
 </html>
