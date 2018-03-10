@@ -9,6 +9,7 @@
 <meta name="author" content="Frank Pommerening">
 
 <link rel="stylesheet" href="./common/css/reveal.css">
+<link rel="stylesheet" href="./common/css/global.css">
 <link rel="stylesheet" href="./common/css/theme/black.css" id="theme">
 
 <!-- Theme used for syntax highlighting of code -->
@@ -22,16 +23,6 @@
     link.href = window.location.search.match(/print-pdf/gi) ? './common/css/print/pdf.css' : './common/css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
 </script>
-
-<style>
-    a.infolink {
-        width: 40px;
-        height: 40px;
-        display: inline-block;
-        background-image: url("images/about.svg");
-        background-size: cover;
-    }
-</style>
 
 <body>
     <div class="reveal">
@@ -82,27 +73,242 @@
             </section>
             <section>
                 <section>
-                    <h2>Amazon Developer Console <br/> Alexa Skill Kit</h2>
+                    <h2>Amazon Developer Console
+                        <br/> Alexa Skill Kit</h2>
+                </section>
+                <section>
+                    <h4>Entwicklerportal öffen</h4>
+                    <a href="https://developer.amazon.com/de/alexa" target="_blank">https://developer.amazon.com/de/alexa</a>
+                    <img src="images/dev-portal-start.png" style="border: 0px;background: transparent;height:450px" />
+                </section>
+                <section>
+                    <h4>Anmelden mit Amazon-Konto</h4>
+                    <img src="images/dev-portal-auth.png" style="border: 0px;background: transparent;height:400px" />
+                    <br/> Für die Verwendung eigener Alexa-Geräte muss das zugehörige Konto verwendet werden.
+                </section>
+                <section>
+                    <h4> Konsole öffnen</h4>
+                    <img src="images/dev-portal-open-console.png" style="border: 0px;background: transparent;height:450px" />
+                    <br/> Hinweis: die folgenden Beispiele verwenden ausschließlich das neue Portal.
+                </section>
+                <section>
+                    <h4>Übersicht der Skills</h4>
+                    <img src="images/dev-portal-skill-list.png" style="border: 0px;background: transparent;height:450px" />
                 </section>
             </section>
             <section>
                 <section>
                     <h2>Interaction Modell</h2>
+                    <h3>Spracherkennung</h3>
                 </section>
                 <section>
-                    <h3>Intents</h3>
+                    <h4>Skill erstellen</h4>
+                    Name und Sprache auswählen.
+                    <br/> Wichtig: der Name steht in keiner Beziehung zum Aufruf!
+                    <img src="images/dev-portal-new-skill-name.png" style="border: 0px;background: transparent;height:450px" />
                 </section>
                 <section>
-                    <h3>Utterances</h3>
+                    <h4>Auswahl Skill-Typ</h4>
+                    <img src="images/dev-portal-new-skilltype-selected.png" style="border: 0px;background: transparent;height:450px" />
                 </section>
                 <section>
-                    <h3>Slot Types</h3>
+                    <h4>Auswahl Skill-Typ</h4>
+                    <img src="images/dev-portal-new-skilltype-selected.png" style="border: 0px;background: transparent;height:450px" />
                 </section>
                 <section>
-                    <h3>Build-Status</h3>
+                    <h4>Console - Übersicht</h4>
+                    Änderungen am Interaction Modell müssen gespeichert und gebaut werden.
+                    <br/>
+                    <img src="images/dev-portal-overview.png" style="border: 0px;background: transparent;height:450px" />
                 </section>
                 <section>
-                    <h3>Scrum-Planer (Interaction Modell)</h3>
+                    <h3>Invocation Name (Skill-Aufruf)</h3>
+                    Vorgabe / Limitierungen
+                    <img src="images/dev-portal-invocation.png" style="border: 0px;background: transparent;height:350px;float:right" />
+                    <ul>
+                        <li>nur Kleinbuchstaben</li>
+                        <li>Zahlen müssen ausgeschrieben
+                            <br/> sein z.B. 2 - zwei</li>
+                        <li>keine Start-Formulierung
+                            <br/> wie Starte, Lade, Sage ...</li>
+                        <li>keine Weck-Formulierung
+                            <br/>wie Alexa, Computer, Echo ...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Intents
+                        <a href="https://developer.amazon.com/de/docs/custom-skills/use-the-skill-builder-beta-to-define-intents-slots-and-dialogs.html#intents-slots-dialogs"
+                            target="_blank" class="infolink"></a>
+                    </h3>
+                    Technische Bezeichnungen der Befehle innerhalb des Skills.
+                    <br />
+                    <img src="images/dev-portal-intents-list.png" style="border: 0px;background: transparent;height:450px" />
+                </section>
+                <section>
+                    <h4>Eigene Intents</h4>
+                    <img src="images/dev-portal-intent-new.png" style="border: 0px;background: transparent;height:250px" />
+                    <br /> Vorgabe / Limitierungen
+                    <br />
+                    <ul>
+                        <li>nur Kleinbuchstaben</li>
+                        <li>keine Sonderzeichen - außer Unterstrich</li>
+                        <li>keine Leerzeichen oder Zahlen</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Standard-Intents</h4>
+                    <img src="images/dev-portal-intent-default.png" style="border: 0px;background: transparent;height:450px;float:right" /> Standard-Befehle werden inkl. Redewendungen durch Amazon bereitgestellt. Diese müssen, soweit noch nicht
+                    vorhanden, zugeordnet werden.
+                    <br />
+                    <br /> Beispiele
+                    <br/>
+                    <ul>
+                        <li>AMAZON.YesIntent</li>
+                        <li>AMAZON.NoIntent</li>
+                        <li>AMAZON.HelpIntent</li>
+                        <li>AMAZON.StopIntent</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Utterances (Redewendungen)</h3>
+                    <img src="images/dev-portal-utterance-new.png" style="border: 0px;background: transparent;height:150px;float:right" /> Zuordnung umgangssprachlicher Formulierung(en) zum Intent. Je mehr Formulierungen um so besser die Benutzerinteraktion.
+                    <img src="images/dev-portal-utterance-slot.png" style="border: 0px;background: transparent;height:350px;float:left" />
+                    <br />
+                    <br /> In der Formulierung können Platzhalter (Slots) definiert werden. Jedem Slot ist ein Slot-Type zuzugeordnet.
+                    <br
+                    /> Die Definition der Slots gilt je Intent.
+                    <img src="images/dev-portal-utterance-slots.png" style="border: 0px;background: transparent;height:150px;" />
+                </section>
+                <section>
+                    <h3>Slot Types (BuildIn)</h3>
+                    Die Auswahl Build-Slot-Types ist abhängig von der Sprache.
+                    <br/>
+                    <br/> Beispiel
+                    <i>AMAZON.Actor</i> ist nur in Englisch (US) verfübar.
+                    <br /> Die Liste z.B. Städte oder Vornamen werden durch Amazon bereitgestellt - können aber erweiteret werden.
+                    <br/>
+                    <br /> Der Sondertyp
+                    <i>AMAZON.SearchQuery</i> erlaubt einen Platzhalter ohne vordefinierte Werte. Je Intent ist nur ein Platzhalter
+                    des Types zulässig.
+                </section>
+                <section>
+                    <h4>Zahlen, Daten, Zeiten</h4>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Name</td>
+                                    <th>Bedeutung</th>
+                                    <th>Beispiele</th>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.DATE</td>
+                                <td>Datum im ISO-8061 Format</td>
+                                <td>Heute, Morgen, nächste Woche, dieses Jahr</td>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.Time</td>
+                                <td>Zeit im ISO-8061 Format</td>
+                                <td>Jetzt, Mitternacht, drei Uhr</td>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.DURATION</td>
+                                <td>Zeitraum im ISO-8061 Format</td>
+                                <td>drei Tage, acht Wochen, zehn Minuten</td>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.NUMBER</td>
+                                <td>Zahlen</td>
+                                <td>eins, dreiundzwanzig</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h4>Listen</h4>
+                    Die erkannten Werte der Listen sind immer kleingeschrieben.
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Name</td>
+                                    <th>Bedeutung</th>
+                                    <th>Beispiele</th>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.DE_REGION</td>
+                                <td>dt. geografische Regionen</td>
+                                <td>sachsen</td>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.DE_CITY</td>
+                                <td>dt. Städte</td>
+                                <td>berlin, leipzig</td>
+                            </tr>
+                            <tr>
+                            <td>AMAZON.EUROPE_CITY</td>
+                                    <td>Städte (Europa / Welt)</td>
+                                    <td>london, paris</td>
+                                </tr>
+                            <tr>
+                                <td>AMAZON.DE_FIRST_NAME</td>
+                                <td>deutsche Vornamen</td>
+                                <td>frank, anna</td>
+                            </tr>
+                            <tr>
+                                <td>AMAZON.US_FIRST_NAME</td>
+                                <td>englische Vornamen</td>
+                                <td>steve, opera</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h3>Slot Types (Custom)</h3>
+                    <img src="images/dev-portal-slottype-new.png" style="border: 0px;background: transparent;height:150px;float:right" />
+                    Als Ergänzung können einige Slot-Types definiert werden.<br /> 
+                    
+                    Vorgaben: Buchstaben oder Unterstriche
+                    <img src="images/dev-portal-slottype-items.png" style="border: 0px;background: transparent;height:350px;float:left" />
+                    <br />
+                    <br />
+                    Synonyme und Id sind dabei optional.
+                    <br/>
+                    <br/>
+                    Slot-Types werden auf Skill-Ebene verwaltet.
+                </section>
+                <section>
+                    <h3>Endpoint</h3>
+                    Der Endpunkt stellt die Verbindung zur Sprachverarbeitung dar. 
+                    <br />
+                    <br />
+                    <h4>Amazon AWS Lambda </h4>
+                    <img src="images/dev-portal-endpoint-aws.png" style="border: 0px;background: transparent;height:400px;" />
+                </section>
+                <section>
+                        <h4>Endpoint (HTTPS)</h4>
+                        Erlaubt die Verwendung eines beliebigen Endpunkts z.B. Azure Function.
+                        <img src="images/dev-portal-endpoint-https.png" style="border: 0px;background: transparent;height:450px;" />
+                </section>
+                <section>
+                    <h3>Szenario Build-Status</h3>
+                    Ziel: Skill nennt den aktuellen Build-Status<br/><br/>
+                    Intent: buildstatus <br />
+                    HTTPS-Endpoint : https://alexa.openfaas-dotnet.de/function/sparta-alexa-build
+                </section>
+                <section>
+                    <h3>Szenario Scrum-Planer (Interaction Modell)</h3>
+                    Es soll eine Voice-UI zur Planung der Scum-Meeting erstellt werden.<br />
+                    Das Entwickler-Team soll<br />
+                    <ul>
+                        <li>Termine erstellen</li>
+                        <li>Termin(e) nennen</li>
+                        <li>Mitarbeiter zum Termin einladen</li>
+                        <li>Mitarbeiter aus Termin entfernen</li>
+                    </ul>
+                    <br />
+                    <br />
+                    Randbedingungen<br/>
+                    Srum-Meetings: Sprint Planning, Sprint Retrospective und Sprint Review<br />
+                    Jeder Mitarbeiter ist per Vorname eindeutig zu identifizieren
                 </section>
             </section>
             <section>
