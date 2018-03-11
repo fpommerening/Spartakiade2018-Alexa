@@ -4,7 +4,7 @@ provider:
   network: "functions" 
 
 functions:
-  sparta-alexa-hallo:
+  sparta-alexa-scrum:
     lang: csharp-tdd
-    handler: ./hallo-world
-    image: fpommerening/spartakiade2018:alexa-hallo
+    handler: ./scrum-planner
+    image: fpommerening/spartakiade2018:alexa-scrum
