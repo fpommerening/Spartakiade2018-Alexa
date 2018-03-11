@@ -1,0 +1,10 @@
+provider:
+  name: faas
+  gateway: https://alexa.openfaas-dotnet.de
+  network: "functions" 
+
+functions:
+  sparta-alexa-build:
+    lang: csharp-tdd
+    handler: ./build-status
+    image: fpommerening/spartakiade2018:alexa-build-status
