@@ -1,0 +1,10 @@
+provider:
+  name: faas
+  gateway: https://alexa.openfaas-dotnet.de
+  network: "functions" 
+
+functions:
+  sparta-alexa-hallo:
+    lang: csharp-tdd
+    handler: ./hallo-world
+    image: fpommerening/spartakiade2018:alexa-build-hallo
