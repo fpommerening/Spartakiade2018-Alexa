@@ -58,7 +58,7 @@ Zum Testen kann ein eigener Amazon Echo verwendet werden - <b> ist aber keine Vo
 3. Teilnehmer-Voraussetzungen / Vorbereitung
 
 [x] Account für <a href="https://developer.amazon.com/de/" target="_blank"> Amazon Developer Konsole</a> <br/>
-[o] Backend - Zugang <br/>
+[o] Backend - Zugang (OPTIONAL)<br/>
 &nbsp;&nbsp;&nbsp;[o] Account für <a href="https://aws.amazon.com/de/console/" target="_blank"> Amazon AWS</a> (Hinweis: Kreditkarte erforderlich!) <br />
 &nbsp;&nbsp;&nbsp;[o] Account für <a href="https://azure.microsoft.com" target="_blank"> Microsoft Azure</a> (Hinweis: Kreditkarte erforderlich!) <br />
 &nbsp;&nbsp;&nbsp;[o] OpenFaaS <a href="https://docs.docker.com/docker-for-windows/" target="_blank"> Docker for Windows</a> / Online Server wird gestellt <br />
