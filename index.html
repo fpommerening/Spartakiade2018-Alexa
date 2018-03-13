@@ -308,7 +308,7 @@
                     <br />
                     Randbedingungen<br/>
                     Srum-Meetings: Sprint Planning, Sprint Retrospective und Sprint Review<br />
-                    Jeder Mitarbeiter ist per Vorname eindeutig zu identifizieren
+                    Jeder Mitarbeiter ist per Vorname eindeutig zu identifizieren.
                 </section>
             </section>
             <section>
@@ -327,10 +327,183 @@
             </section>
             <section>
                 <section>
+                    <h2>Backends</h2>
+                </section>
+                <section>
+                    <h4>Aktivierung Test für Skill</h4>
+                    Vor dem Testen muss der Skill dafür aktiviert werden.<br />
+                    <img src="images/dev-portal-test-disabled.png" style="border: 0px;background: transparent;height:350px;" />
+                </section>
+                <section>
+                        <h4>Testconsole</h4>
+                        <img src="images/dev-portal-test-console.png" style="border: 0px;background: transparent;height:550px;" />
+                </section>
+                <section>
+                        <h4>Testeingabe</h4>
+                        Die Eingabe erfolgt per<br />
+                        <ul>
+                            <li>per Texteingabe</li>
+                            <li>per Sprache (Verwendung des System-Mikrofon)</li>
+                            <li>als manuelles JSON</li>
+                        </ul>
+                        <br />
+                        <br />
+                        Auf Alexa-Geräten die dem eigenen Account zugeordnet sind, kann getestet werden auch ohne Veröffentlichung des Skills.
+
+                        <br />
+                        <br />
+                        Nach Eingabe der Informationen zur Veröffentlichung können Beta-Tester eingeladen werden.
+                </section>
+                <section>
+                    <h4>Sprachausgaben</h4>
+                    Im Bereich Voice & Tone können Sprachausgaben inkl. SSML erprobt werden. 
+                    <br />
+                    <img src="images/dev-portal-speech-test.png" style="border: 0px;background: transparent;height:350px;" />
+                    <br />
+                    Die Aussprache unterscheidet sich ja nach gewählter Sprache.
+                </section>
+                <section>
+                    <h4>Beta-Tests</h4>
+                    Nach Eingabe der Informationen zur Veröffentlichung können Beta-Tester eingeladen werden. <br />
+                    <img src="images/dev-portal-beta-test.png" style="border: 0px;background: transparent;height:500px;" />
+                </section>        
+            </section>
+            <section>
+                <section>
                     <h2>Spracheverarbeitung</h2>
                 </section>
                 <section>
-                    <h3>Scrum-Planer (Backend)</h3>
+                    <h3>SSML (Speech Synthesis Markup Language) <a href="https://developer.amazon.com/de/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html"
+                        target="_blank" class="infolink"></a></h3>
+                    Neben reinem Text kann mittels SSML Einfluss auf die Sprachausgabe genommen werden und Effekte ergänzt werden.
+                    <br />
+                    <br />
+<h4>Flüstern</h4>
+                    <pre><code class="xml"><speak>
+    Anderer Text
+    <amazon:effect name="whispered">Text ganz leise.</amazon:effect>.
+    Weiterer Text
+</speak></code></pre>
+<h4>Pausen</h4>
+<pre><code class="xml"><speak>
+        Woll'n mal überlegen <break time="2s" > </break>
+        Ja <break strength="medium"> </break> ich nehm das Steak.
+</speak></code></pre>
+
+                </section>
+                <section>
+                        <h4>Telefonnummern</h4>
+                        <pre><code class="xml"><speak>
+        <say-as interpret-as="telephone">035125613710</say-as>
+</speak></code></pre>
+<h4>Datumswerte</h4>
+<pre><code class="xml"><speak>
+        <say-as interpret-as="date">2005-02-29</say-as>
+</speak></code></pre>
+<h4>Buchstabieren</h4>
+<pre><code class="xml"><speak>
+        <say-as interpret-as="date">2005-02-29</say-as>
+</speak></code></pre>
+                </section>
+                <section>
+                    <h3>Alexa Skills Kit Sound Library <a href="https://developer.amazon.com/de/docs/custom-skills/ask-soundlibrary.html"
+                        target="_blank" class="infolink"></a></h3>
+Die Bibliotkel stellt eine Anzahl von Effektsounds bereit. <br/> Die Einbindung erfolgt per Audio-Tag.                        
+<pre><code class="xml"><speak>
+    <audio src='https://s3.amazonaws.com/ask-soundlibrary/human/amzn_sfx_baby_cry_02.mp3'>
+    </audio></speak>
+</code></pre>
+Es können auch eigene Sounds integriert werden. Die Quelle muss per HTTPS erreichbar sein. Die maximale Länge beträgt 90 Sekunden.
+<br/>
+Technische Vorgabe: MP3-Format, 48kbps, 16kHz.
+                </section>
+                <section>
+                        <h3>Speechcons <a href="https://developer.amazon.com/de/docs/custom-skills/speechcon-reference-interjections-german.html"
+                            target="_blank" class="infolink"></a></h3>
+                        Speechcons sind Formulierungen die speziell betont werden. <br/> Die Auswahl ist sprachabhängig.
+                        <pre><code class="xml"><speak>
+    <say-as interpret-as="interjection">ähm</say-as>
+</speak></code></pre>
+<pre><code class="xml"><speak>
+    <say-as interpret-as="interjection">achtung</say-as>
+    der Kaffee ist heiß!
+</speak></code></pre>
+                    </section>
+                <section>
+                    <h3>Benutzer-Authentifizeriung</h3>
+                    In der Session bzw. im Context  wird die UserId übermittelt.
+<pre><code class="json">{
+"version": "1.0",
+    "session": {
+    "user": {
+        "userId": "amzn1.ask.account.AGLYCESV47M..."
+        }
+},
+"context": {
+    "System": {
+        "user": {
+            "userId": "amzn1.ask.account.AGLYCESV47M..."
+            }
+        }
+    }
+}</code></pre>
+                </section>
+                <section>
+                    <h3>Zustandverwaltung</h3>
+                    Die Aufrufe des Backends sind per Default zustandslos.
+                    <br />
+                    <h4>Externe Speicherung</h4>
+                    Je Konversation wird eine Session-Id erstellt und bei jedem Aufruf übertragen. Die Id kann als Key für einen extere Datenspeicher (Redis, S3, ...) dienen.
+<pre><code class="json">{
+    "version": "1.0",
+        "session": {
+            "new": true,
+                "sessionId": "amzn1.echo-api.session.eaa1",
+            }
+}</code></pre>
+Das Flag <i>new</i> informiert ob es der erste Aufrufe der Konversation ist.
+                </section>
+                <section>
+                    <h4>Interne Speicherung</h4>
+                    Für kleine Datenmengen kann der Key-Value-Store <i>SessionAttributes</i> verwendet werden.
+                    <br />
+                    <br />
+                    Dieser steht im Request und Respone zur Verfügung.
+                    <pre><code class="json">{
+    "version": "1.0",
+    "sessionAttributes": {
+        "key1": "value1",
+        "key2": "value2"
+    }
+}</code></pre>
+Der Zugriff auf die Werte wird i.d.R durch die APIs bereitgestellt.
+                </section>
+                <!--
+                <section>
+                    <h3>Empfehlungen</h3>
+                    <ul>
+                        <li>Gestalte die Rückgaben abwechslungsreich</li>
+                        <li>Gibt dem Anwender Informationen über mögliche Optionen</li>
+
+                    </ul>
+
+                </section>
+            -->
+                <section>
+                    <h3>Szenario Scrum-Planer (Backend)</h3>
+                    Es soll eine Voice-UI zur Planung der Scum-Meeting erstellt werden.<br />
+                    Das Entwickler-Team soll<br />
+                    <ul>
+                        <li>Termine erstellen</li>
+                        <li>Termin(e) nennen</li>
+                        <li>Mitarbeiter zum Termin einladen</li>
+                        <li>Mitarbeiter aus Termin entfernen</li>
+                    </ul>
+                    <br />
+                    <br />
+                    Randbedingungen<br/>
+                    Srum-Meetings: Sprint Planning, Sprint Retrospective und Sprint Review<br />
+                    Jeder Mitarbeiter ist per Vorname eindeutig zu identifizieren.
                 </section>
             </section>
             <section>
@@ -342,13 +515,15 @@
                     https://www.visualstudio.com/en-us/docs/integrate/api/build/builds
                 </section>
                 <section>
-                    <h3>Mail-Status</h3>
+                    <h3>Mail-Status (Backend)</h3>
                     https://github.com/jstedfast/MailKit
                 </section>
             </section>
+            <!--
             <section>
                 <h2>Smarthome</h2>
             </section>
+        -->
         </div>
     </div>
     <script src="./common/lib/js/head.min.js"></script>
