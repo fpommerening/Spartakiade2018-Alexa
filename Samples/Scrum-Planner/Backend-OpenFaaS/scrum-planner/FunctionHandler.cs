@@ -1,6 +1,8 @@
 ﻿using Alexa.NET;
 using Alexa.NET.Request;
+using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
+using Function.Intents;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OpenFaaS.Dotnet;
@@ -14,18 +16,42 @@ namespace Function
         {
         }
 
+        private BaseIntentHandler[] handlers = 
+        {
+            new ParticipantAddIntentHandler(),
+        };
+
         public override void Handle(string input)
         {
-            var request = JsonConvert.DeserializeObject<SkillRequest>(input);
-
-            var requestType = request.GetRequestType();
-
+            var skillRequest = JsonConvert.DeserializeObject<SkillRequest>(input);
             SkillResponse response = null;
 
-            response = ResponseBuilder.Tell($"Request-Typ {requestType.Name}");
+            var requestType = skillRequest.GetRequestType();
 
+            if (requestType == typeof(IntentRequest))
+            {
+                response = HandleIntentRequest(skillRequest);
+            }
+            else
+            {
+                response = ResponseBuilder.Tell($"Request-Typ {requestType.Name}");
+            }
             Context.WriteContent(JsonConvert.SerializeObject(response, Formatting.Indented,
                 new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
+
+        private SkillResponse HandleIntentRequest(SkillRequest skillRequest)
+        {
+            var intentRequest = (IntentRequest)skillRequest.Request;
+            foreach (var handler in handlers)
+            {
+                if (handler.IntentName == intentRequest.Intent.Name)
+                {
+                    return handler.Handle(skillRequest);
+                }
+            }
+            return ResponseBuilder.Tell($"Der Aufruf {intentRequest.Intent.Name} ist unbekannt.");
+        }
+       
     }
 }
