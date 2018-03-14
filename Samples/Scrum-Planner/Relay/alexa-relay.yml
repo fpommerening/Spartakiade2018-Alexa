@@ -1,0 +1,13 @@
+provider:
+  name: faas
+  #gateway: http://localhost:8080
+  gateway: https://demo.openfaas-dotnet.de
+  network: functions
+
+functions:
+  sparta-alexa-relay:
+    lang: csharp
+    handler: ./alexa-relay
+    image: fpommerening/spartakiade2018:alexa-relay
+    environment:
+      relay_target_url: https://8b4893d4.ngrok.io
