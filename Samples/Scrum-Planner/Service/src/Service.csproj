@@ -4,6 +4,16 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="DocumentDBCnn" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DocumentDBCnn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />

@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+    documentdb:
+        image: mongo:3.6
+        networks:
+            - functions
+    web-service:
+        #image: scrum-planner-service
+        image: fpommerening/spartakiade2018:scrum-planner-service
+        networks:
+            - functions
+        ports:
+            - 7000:7000
+        secrets:
+          - DocumentDBCnn
+        environment:
+          LETSENCRYPT_EMAIL: "frank@openfaas-dotnet.de"
+          LETSENCRYPT_HOST: "alexa.openfaas-dotnet.de"
+          VIRTUAL_HOST: "alexa.openfaas-dotnet.de"
+          VIRTUAL_PORT: "7000"
+secrets:
+  DocumentDBCnn:
+      external:
+          name: DocumentDBCnn
+          
+networks:
+  functions:
+    external:
+          name: functions

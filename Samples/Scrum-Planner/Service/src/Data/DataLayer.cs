@@ -67,7 +67,8 @@ namespace Service.Data
 
         private IMongoClient Client()
         {
-            return _mongoClient ?? (_mongoClient = new MongoClient("mongodb://localhost"));
+            var cnn = DockerSecretHelper.GetSecretValue("DocumentDBCnn");
+            return _mongoClient ?? (_mongoClient = new MongoClient(cnn));
         }
     }
 }
