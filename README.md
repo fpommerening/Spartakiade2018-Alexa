@@ -58,10 +58,12 @@ Zum Testen kann ein eigener Amazon Echo verwendet werden - <b> ist aber keine Vo
 3. Teilnehmer-Voraussetzungen / Vorbereitung
 
 [x] Account für <a href="https://developer.amazon.com/de/" target="_blank"> Amazon Developer Konsole</a> <br/>
-[x] Backend - Zugang <br/>
+[o] Backend - Zugang (OPTIONAL)<br/>
 &nbsp;&nbsp;&nbsp;[o] Account für <a href="https://aws.amazon.com/de/console/" target="_blank"> Amazon AWS</a> (Hinweis: Kreditkarte erforderlich!) <br />
 &nbsp;&nbsp;&nbsp;[o] Account für <a href="https://azure.microsoft.com" target="_blank"> Microsoft Azure</a> (Hinweis: Kreditkarte erforderlich!) <br />
 &nbsp;&nbsp;&nbsp;[o] OpenFaaS <a href="https://docs.docker.com/docker-for-windows/" target="_blank"> Docker for Windows</a> / Online Server wird gestellt <br />
-[x] Notebook mit <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
+[x] Notebook mit <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a><br />
+[x] <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017</a> mit Workload ASP.NET und Webentwicklung (Community Edition reicht)<br />
+[x] Account für <a href="https://ngrok.com/" target="_blank">ngrok</a>
 
 <b>Die Präsentation könnt ihr, nach der Veranstaltung, auf der <a href="https://fpommerening.github.io/Spartakiade2018-Alexa/#/" target="_blank">GitHub-Page</a> einsehen.</b>
