@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
@@ -15,9 +16,20 @@ namespace Function.Intents
 
             if (intentRequest.Intent.Slots.TryGetValue("participant", out var Participant) && !string.IsNullOrEmpty(Participant.Value))
             {
-                Console.WriteLine($"Erkannter Benutzer {Participant.Value}");
-
-                return ResponseBuilder.Tell($"{Participant.Value} wurde hinzugefügt");
+                var responseSession = new Session
+                {
+                    Attributes = new Dictionary<string, object>
+                    {
+                        {"participant", Participant.Value},
+                        {"state", IntentState.ParticipantAdd }
+                    }
+                };
+                var anwser = new PlainTextOutputSpeech {Text = $"Soll {Participant.Value} hinzugefügt werden?"};
+                var repompt = new Reprompt
+                {
+                    OutputSpeech = new PlainTextOutputSpeech {Text = $"{Participant.Value} hinzufügen"}
+                };
+                return ResponseBuilder.Ask(anwser, repompt, responseSession);
             }
 
             return ResponseBuilder.Tell("Es wurde kein Benutzer übergeben");

@@ -19,6 +19,11 @@ namespace Function
         private BaseIntentHandler[] handlers = 
         {
             new ParticipantAddIntentHandler(),
+            new AppointmentCreateIntentHandler(), 
+            new AppointmentListIntentHandler(), 
+
+            new AmazonYesIntentHandler(), 
+            new AmazonNoIntentHandler()
         };
 
         public override void Handle(string input)
@@ -36,8 +41,9 @@ namespace Function
             {
                 response = ResponseBuilder.Tell($"Request-Typ {requestType.Name}");
             }
+
             Context.WriteContent(JsonConvert.SerializeObject(response, Formatting.Indented,
-                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
+                    new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));
         }
 
         private SkillResponse HandleIntentRequest(SkillRequest skillRequest)
